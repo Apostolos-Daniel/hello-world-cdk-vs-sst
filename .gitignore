@@ -1,0 +1,15 @@
+# don't exclude __mocks__ directory
+*.js
+!__mocks__/**/*
+!jest.config.js
+*.d.ts
+# don't ignore src/types
+!src/types/**/*
+node_modules
+
+# don't ignore lint-staged.config.js
+!lint-staged.config.js
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out

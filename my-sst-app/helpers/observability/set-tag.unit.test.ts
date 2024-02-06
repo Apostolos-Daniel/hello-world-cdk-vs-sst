@@ -8,6 +8,7 @@ vi.mock('dd-trace');
 
 beforeEach(() => {
   vi.resetAllMocks();
+  vi.clearModules();
 });
 
 describe('set tag', () => {
