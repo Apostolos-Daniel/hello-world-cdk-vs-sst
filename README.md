@@ -1,4 +1,4 @@
-# testing-dd-trace-with-vitest
+# Setting a custom tag with `dd-trace` in a Lambda function
 
 I am trying to use the Datadog tracer [`dd-trace`](https://github.com/DataDog/dd-trace-js)  for setting a custom tag during a Lambda function handler invocations.
 
