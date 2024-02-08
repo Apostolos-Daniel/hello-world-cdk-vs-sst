@@ -8,8 +8,13 @@ export function API({ stack }: StackContext) {
   });
 
   const api = new Api(stack, "api", {
+    
     defaults: {
       function: {
+        // AWS does not allow you to do this, because it's a reserved environment variable
+        // environment: {
+        //   LAMBDA_TASK_ROOT: 'my-sst-app', 
+        // },
         bind: [bus],
       },
     },

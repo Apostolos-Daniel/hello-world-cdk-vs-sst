@@ -26,7 +26,7 @@ export default {
       // since they'll be loaded from the Layer
       app.setDefaultFunctionProps({
         nodejs: {
-          install: ["datadog-lambda-js"],
+          install: ["dd-trace", "datadog-lambda-js"],
         },
       });
     app.stack(API);
@@ -45,6 +45,7 @@ export default {
             extensionLayerVersion: 53,
             site: "datadoghq.eu",
             apiKeySecretArn: datadogApiKeySecretArn,
+            xrayTracing: false,
             env: app.stage,
             service: app.name,
             // Just a recommendation, feel free to change the version per your CI/CD
