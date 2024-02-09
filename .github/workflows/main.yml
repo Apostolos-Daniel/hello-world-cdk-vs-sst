@@ -27,7 +27,7 @@ jobs:
       - name: Assume role using OIDC
         uses: aws-actions/configure-aws-credentials@v3
         with:
-          role-to-assume: arn:aws:iam::623037120783:role/github-ci-role
+          role-to-assume: arn:aws:iam::643476110649:role/github-ci-role
           aws-region: eu-west-1
 
     # https://github.com/pnpm/action-setup
