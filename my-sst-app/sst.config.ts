@@ -45,7 +45,6 @@ export default {
             extensionLayerVersion: 53,
             site: "datadoghq.eu",
             apiKeySecretArn: datadogApiKeySecretArn,
-            xrayTracing: false,
             env: app.stage,
             service: app.name,
             // Just a recommendation, feel free to change the version per your CI/CD
