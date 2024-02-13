@@ -28,8 +28,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: arn:aws:iam::643476110649:role/github-ci-role
-          aws-region: eu-west-1
-
+          aws-region: us-east-1
     # https://github.com/pnpm/action-setup
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.0.0

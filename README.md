@@ -39,8 +39,8 @@ const registerLambdaHook = () => {
 
 1. Install node modules and run `sst dev`:
 ```bash
-npm install
-sst dev
+pnpm install
+pnpm dev
 ```
 2. Hit the endpoint with a `GET` request:
 ```bash
