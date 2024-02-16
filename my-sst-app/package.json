@@ -8,6 +8,7 @@
     "build": "sst build",
     "test": "vitest",
     "deploy": "sst deploy",
+    "deploy:production": "AWS_SDK_LOAD_CONFIG=1 sst deploy --stage production",
     "remove": "sst remove",
     "console": "sst console",
     "typecheck": "tsc --noEmit"

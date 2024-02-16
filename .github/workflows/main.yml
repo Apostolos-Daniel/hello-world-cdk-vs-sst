@@ -17,6 +17,10 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # set workign directory
+    defaults:
+      run:
+        working-directory: ./my-sst-app
     env:
       SST_STAGE: production
 
