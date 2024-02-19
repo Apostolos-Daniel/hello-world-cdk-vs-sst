@@ -43,4 +43,4 @@ jobs:
               args: [--no-frozen-lockfile]
 
       - name: Deploy
-        run: pnpm run deploy:production
+        run: pnpm run deploy:prod
