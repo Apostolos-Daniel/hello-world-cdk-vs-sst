@@ -1,4 +1,4 @@
-import { StackContext, Api, EventBus } from "sst/constructs";
+import { StackContext, Api, EventBus, Function } from "sst/constructs";
 
 export function API({ stack }: StackContext) {
   const bus = new EventBus(stack, "bus", {
@@ -7,26 +7,25 @@ export function API({ stack }: StackContext) {
     },
   });
 
-  const api = new Api(stack, "api", {
-    
-    defaults: {
-      function: {
-        // AWS does not allow you to do this, because it's a reserved environment variable
-        // environment: {
-        //   LAMBDA_TASK_ROOT: 'my-sst-app', 
-        // },
-        bind: [bus],
-      },
-    },
-    routes: {
-      "GET /": "packages/functions/src/lambda.handler",
-      "GET /todo": "packages/functions/src/todo.list",
-      "POST /todo": "packages/functions/src/todo.create",
+  const fn = new Function(stack, "MyFunction", {
+    handler: "packages/functions/src/lambda.handler",
+    functionName: "hello-world-sst",
+    // currentVersionOptions: {
+    //   provisionedConcurrentExecutions: 1,
+    // },
+    environment: {
+      DD_VERSION: "1.0.0",
     },
   });
+  const version = fn.currentVersion;
 
-  bus.subscribe("todo.created", {
-    handler: "packages/functions/src/events/todo-created.handler",
+
+  const api = new Api(stack, "api", {
+    routes: {
+      "GET /": {
+        function: fn,
+      },
+    },
   });
 
   stack.addOutputs({

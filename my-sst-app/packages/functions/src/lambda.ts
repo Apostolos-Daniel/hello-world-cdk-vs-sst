@@ -1,12 +1,10 @@
-import { setTag } from '../../../helpers/';
+//import { setTag } from '../../../helpers/';
 import { ApiHandler } from "sst/node/api";
-import { datadog } from "datadog-lambda-js";
 
-export const handler = datadog(ApiHandler(async (_evt) => {
-  setTag('foo', 'bar');
+export const handler = ApiHandler(async (_evt) => {
   return {
     statusCode: 200,
-    body: `Hello world. The time is ${new Date().toISOString()}`,
+    body: `Hello world - I'm an SST App. The time is ${new Date().toISOString()}`,
   };
-}));
+});
  
